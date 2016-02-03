@@ -13,7 +13,7 @@ Connect to the virtual com port of your UNO with a terminal program (like minico
 
 Typing "help" should display this: 
 
-	Usage: 
+	Usage:
 	 Reading
 	 read <i2c device address> <register address> <length>
 	
@@ -32,14 +32,17 @@ Typing "help" should display this:
 	
 	 Commands can be shorted to just the first letter.
 	
+	 NOTE: If <register address> is more than 2 characters it will be interpreted as a 16 bit address and 16 bit addressing will
+	 be used. For example the AT24CS32 eeprom uses this adressing mode.
+	
 	 Example writing:
-	> w 0x50 0 10 1 2 5
+	 > w 0x50 0 10 1 2 5
 	 Writes 4 bytes to address 0 of an eeprom memory (0x50 is standard address for 24cxx memories)
 	 Output:
-	        OK
+	 OK
 	
-	Example reading:
-	> r 0x50 0 10
+	 Example reading:
+	 > r 0x50 0 10
 	 Reads 10 bytes from address 0 of that same eeprom.
-	Output:
-	   OK(hex) a,1,2,5,1,0,0,2,0,0,
+	 Output:
+	 OK(hex) a,1,2,5,1,0,0,2,0,0,
